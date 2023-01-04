@@ -28,6 +28,7 @@ class ViewController: UITableViewController {
         tableView.refreshControl?.addTarget(self, action: #selector(getGenres), for: .valueChanged)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
         getGenres()
+        view.backgroundColor = .red
     }
     
     @objc
