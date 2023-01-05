@@ -28,7 +28,6 @@ class ViewController: UITableViewController {
         tableView.refreshControl?.addTarget(self, action: #selector(getGenres), for: .valueChanged)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
         getGenres()
-        view.backgroundColor = .red
     }
     
     @objc
@@ -74,5 +73,9 @@ class ViewController: UITableViewController {
         let genre = models[indexPath.row]
         cell.textLabel?.text = genre.name
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "PodcastsViewController", sender: self)
     }
 }

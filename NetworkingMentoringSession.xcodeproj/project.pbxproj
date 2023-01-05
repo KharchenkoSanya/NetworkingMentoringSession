@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33C806C3296616F400BA2D1A /* PodcastsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C806C2296616F400BA2D1A /* PodcastsTableViewController.swift */; };
 		8D1A4B4A2955FB7F00825E60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1A4B492955FB7F00825E60 /* AppDelegate.swift */; };
 		8D1A4B4C2955FB7F00825E60 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1A4B4B2955FB7F00825E60 /* SceneDelegate.swift */; };
 		8D1A4B4E2955FB7F00825E60 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1A4B4D2955FB7F00825E60 /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		33C806C2296616F400BA2D1A /* PodcastsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastsTableViewController.swift; sourceTree = "<group>"; };
 		8D1A4B462955FB7F00825E60 /* NetworkingMentoringSession.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkingMentoringSession.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D1A4B492955FB7F00825E60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D1A4B4B2955FB7F00825E60 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				8D1A4B492955FB7F00825E60 /* AppDelegate.swift */,
 				8D1A4B4B2955FB7F00825E60 /* SceneDelegate.swift */,
 				8D1A4B4D2955FB7F00825E60 /* ViewController.swift */,
+				33C806C2296616F400BA2D1A /* PodcastsTableViewController.swift */,
 				8D1A4B4F2955FB7F00825E60 /* Main.storyboard */,
 				8D1A4B522955FB8000825E60 /* Assets.xcassets */,
 				8D1A4B542955FB8000825E60 /* LaunchScreen.storyboard */,
@@ -142,6 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33C806C3296616F400BA2D1A /* PodcastsTableViewController.swift in Sources */,
 				8D1A4B4E2955FB7F00825E60 /* ViewController.swift in Sources */,
 				8D1A4B4A2955FB7F00825E60 /* AppDelegate.swift in Sources */,
 				8D1A4B4C2955FB7F00825E60 /* SceneDelegate.swift in Sources */,
