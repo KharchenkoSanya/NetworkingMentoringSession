@@ -21,7 +21,7 @@ struct Genre: Decodable {
 class ViewController: UITableViewController {
     
     var models: [Genre] = []
-    var genre: Genre?
+    var selectedGenre: Genre?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +34,7 @@ class ViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PodcastsViewController" {
             let podcastsVC = segue.destination as! PodcastsTableViewController
-            podcastsVC.genre = genre
-            
+            podcastsVC.genre = selectedGenre
         }
     }
     
@@ -44,14 +43,11 @@ class ViewController: UITableViewController {
         var request = URLRequest(url: URL(string: "https://listen-api-test.listennotes.com/api/v2/genres")!)
         request.httpMethod = "GET"
         let session = URLSession(configuration: .default)
-        
         let task = session.dataTask(with: request) { data, response, error in
             guard let data = data else { return }
-                        
             do {
                 let result = try JSONDecoder().decode(GenresResult.self, from: data)
                 print("DECODING RESULT \(result)")
-                
                 DispatchQueue.main.async {
                     self.models = result.genres
                     self.tableView.reloadData()
@@ -85,6 +81,7 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedGenre = models[indexPath.row]
         performSegue(withIdentifier: "PodcastsViewController", sender: self)
     }
 }
