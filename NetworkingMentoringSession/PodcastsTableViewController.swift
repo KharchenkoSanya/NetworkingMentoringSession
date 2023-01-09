@@ -21,7 +21,7 @@ struct Podcasts: Decodable {
 class PodcastsTableViewController: UITableViewController {
     
     var songs: [Podcasts] = []
-    
+    var genre: Genre?
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,6 +29,8 @@ class PodcastsTableViewController: UITableViewController {
         tableView.refreshControl?.addTarget(self, action: #selector(getPodcasts), for: .valueChanged)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "PodcastTableViewCell")
         getPodcasts()
+        
+        print("genregenre \(genre)")
     }
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -39,7 +41,11 @@ class PodcastsTableViewController: UITableViewController {
     
     @objc
     func getPodcasts() {
-        var requestPodcasts = URLRequest(url: URL(string: "https://listen-api-test.listennotes.com/api/v2/best_podcasts")!)
+        guard let genre = genre else { return }
+        
+        var urlComponents = URLComponents(string: "https://listen-api-test.listennotes.com/api/v2/best_podcasts")!
+        urlComponents.queryItems = [URLQueryItem(name: "genre_id", value: String(genre.id))]
+        var requestPodcasts = URLRequest(url: urlComponents.url!)
         requestPodcasts.httpMethod = "GET"
         let sessionPodcasts = URLSession(configuration: .default)
         

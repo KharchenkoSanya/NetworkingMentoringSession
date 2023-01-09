@@ -21,6 +21,7 @@ struct Genre: Decodable {
 class ViewController: UITableViewController {
     
     var models: [Genre] = []
+    var genre: Genre?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,14 @@ class ViewController: UITableViewController {
         tableView.refreshControl?.addTarget(self, action: #selector(getGenres), for: .valueChanged)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
         getGenres()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PodcastsViewController" {
+            let podcastsVC = segue.destination as! PodcastsTableViewController
+            podcastsVC.genre = genre
+            
+        }
     }
     
     @objc
