@@ -21,7 +21,7 @@ struct Genre: Decodable {
 class ViewController: UITableViewController {
     
     var models: [Genre] = []
-    var selectedGenre: Genre?
+    var selectedGenreID: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,7 @@ class ViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PodcastsViewController" {
             let podcastsVC = segue.destination as! PodcastsTableViewController
-            podcastsVC.genre = selectedGenre
+            podcastsVC.genreID = selectedGenreID
         }
     }
     
@@ -81,7 +81,10 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedGenre = models[indexPath.row]
+        let genre = models[indexPath.row]
+        selectedGenreID = genre.id
+        
+        
         performSegue(withIdentifier: "PodcastsViewController", sender: self)
     }
 }

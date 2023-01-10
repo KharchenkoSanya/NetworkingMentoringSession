@@ -3,25 +3,22 @@
 import UIKit
 
 struct PodcastsResult: Decodable {
-    let podcasts: [Podcasts]
+    let podcasts: [Podcast]
 }
 
-struct Podcasts: Decodable {
+struct Podcast: Decodable {
+    let id: String
     let type: String
     let description: String
     let title: String
-    
-    private enum PodcastsCodingKeys: String, CodingKey {
-        case type
-        case description
-        case title
-    }
 }
 
 class PodcastsTableViewController: UITableViewController {
     
-    var songs: [Podcasts] = []
-    var genre: Genre?
+    var selectedPodcastID: String?
+    var podcasts: [Podcast] = []
+    var genreID: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,12 +27,20 @@ class PodcastsTableViewController: UITableViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "PodcastTableViewCell")
         getPodcasts()
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "EpisodesViewController" {
+            let episodesVC = segue.destination as! EpisodesTableViewController
+            episodesVC.podcastID = selectedPodcastID
+            
+        }
+
+    }
     
     @objc
     func getPodcasts() {
-        guard let genre = genre else { return }
+        guard let genreID = genreID else { return }
         var urlComponents = URLComponents(string: "https://listen-api-test.listennotes.com/api/v2/best_podcasts")!
-        urlComponents.queryItems = [URLQueryItem(name: "genre_id", value: String(genre.id))]
+        urlComponents.queryItems = [URLQueryItem(name: "genre_id", value: String(genreID))]
         var requestPodcasts = URLRequest(url: urlComponents.url!)
         requestPodcasts.httpMethod = "GET"
         let sessionPodcasts = URLSession(configuration: .default)
@@ -45,7 +50,7 @@ class PodcastsTableViewController: UITableViewController {
                 let resultPodcasts = try JSONDecoder().decode(PodcastsResult.self, from: data)
                 print("DECODING RESULT \(resultPodcasts)")
                 DispatchQueue.main.async {
-                    self.songs = resultPodcasts.podcasts
+                    self.podcasts = resultPodcasts.podcasts
                     self.tableView.reloadData()
                     self.tableView.refreshControl?.endRefreshing()
                 }
@@ -66,13 +71,19 @@ class PodcastsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return songs.count
+        return podcasts.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PodcastTableViewCell")!
-        let song = songs[indexPath.row]
-        cell.textLabel?.text = song.title
+        let podcast = podcasts[indexPath.row]
+        cell.textLabel?.text = podcast.title
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let podcast = podcasts[indexPath.row]
+        selectedPodcastID = podcast.id
+        performSegue(withIdentifier: "EpisodesViewController", sender: self)
     }
 }
