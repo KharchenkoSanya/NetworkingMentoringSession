@@ -27,13 +27,12 @@ class PodcastsTableViewController: UITableViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "PodcastTableViewCell")
         getPodcasts()
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "EpisodesViewController" {
             let episodesVC = segue.destination as! EpisodesTableViewController
             episodesVC.podcastID = selectedPodcastID
-            
         }
-
     }
     
     @objc

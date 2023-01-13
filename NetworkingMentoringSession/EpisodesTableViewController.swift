@@ -1,19 +1,26 @@
 import UIKit
 
-struct PodcastsIDResult: Decodable {
-    let podcasts: [Podcast]
+struct PodcastsDetailResult: Decodable {
+    let episodes: [Episode]
 }
 
-struct PodcastsID: Decodable {
-    let type: String
-    let description: String
+struct Episode: Decodable {
+    let id: String
+    let image: String
     let title: String
+    let pubDateMs :	Int
     
+    private enum CodingKeys: String, CodingKey {
+        case id
+        case image
+        case title
+        case pubDateMs = "pub_date_ms"
+    }
 }
 
 class EpisodesTableViewController: UITableViewController {
     var podcastID: String?
-    var songs: [Podcast] = []
+    var songs: [Episode] = []
     
     
     override func viewDidLoad() {
@@ -23,7 +30,6 @@ class EpisodesTableViewController: UITableViewController {
         tableView.refreshControl?.addTarget(self, action: #selector(getPodcast), for: .valueChanged)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "PodcastsIDViewController")
         getPodcast()
-        print("PodcastID \(podcastID)")
     }
     
     @objc
@@ -35,13 +41,11 @@ class EpisodesTableViewController: UITableViewController {
         let sessionPodcasts = URLSession(configuration: .default)
         let taskPodcasts = sessionPodcasts.dataTask(with: requestPodcasts) { data, response, error in
             guard let data = data else { return }
-            let dataString = String(data: data, encoding: .utf8)
-            print("dataString \(dataString)")
             do {
-                let resultPodcasts = try JSONDecoder().decode(PodcastsResult.self, from: data)
+                let resultPodcasts = try JSONDecoder().decode(PodcastsDetailResult.self, from: data)
                 print("DECODING RESULT \(resultPodcasts)")
                 DispatchQueue.main.async {
-                    self.songs = resultPodcasts.podcasts
+                    self.songs = resultPodcasts.episodes
                     self.tableView.reloadData()
                     self.tableView.refreshControl?.endRefreshing()
                 }
@@ -52,7 +56,6 @@ class EpisodesTableViewController: UITableViewController {
                 }
             }
         }
-
         tableView.refreshControl?.beginRefreshing()
         taskPodcasts.resume()
         
