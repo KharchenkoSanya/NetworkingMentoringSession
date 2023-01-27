@@ -23,10 +23,10 @@
             </objects>
             <point key="canvasLocation" x="828" y="2"/>
         </scene>
-        <!--View Controller-->
+        <!--Genres View Controller-->
         <scene sceneID="C9F-KP-AOK">
             <objects>
-                <tableViewController id="oaM-iF-1oQ" customClass="ViewController" customModule="NetworkingMentoringSession" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="oaM-iF-1oQ" customClass="GenresViewController" customModule="NetworkingMentoringSession" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="5YP-Io-5bF">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
