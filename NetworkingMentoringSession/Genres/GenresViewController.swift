@@ -2,7 +2,7 @@
 import UIKit
 
 class GenresViewController: UITableViewController {
-    var presenter: GenresPresenter!
+    var presenter = GenresPresenter()
     var models: [Genre] = []
     var selectedGenreID: Int?
     

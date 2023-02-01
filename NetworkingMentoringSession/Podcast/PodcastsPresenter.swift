@@ -16,7 +16,7 @@ class PodcastsPresenter {
     
     @objc
     func getPodcasts() {
-        view?.display(isLoading: true)        
+        view?.display(isLoading: true)
         var urlComponents = URLComponents(string: "https://listen-api-test.listennotes.com/api/v2/best_podcasts")!
         urlComponents.queryItems = [URLQueryItem(name: "genre_id", value: String(genreID))]
         var requestPodcasts = URLRequest(url: urlComponents.url!)

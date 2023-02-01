@@ -1,6 +1,6 @@
 
 import Foundation
-	
+
 protocol GenresView: AnyObject {
     func display(_ genres: [Genre])
     func display(isLoading: Bool)
