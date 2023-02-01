@@ -2,12 +2,13 @@
 import UIKit
 
 class PodcastsTableViewController: UITableViewController {
-    
-    let presenter = PodcastsPresenter()
-    
+    var presenter: PodcastsPresenter!
     var selectedPodcastID: String?
     var podcasts: [Podcast] = []
-    var genreID: Int?
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,13 +21,6 @@ class PodcastsTableViewController: UITableViewController {
     @objc
     func onRefresh() {
         presenter.getPodcasts()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "EpisodesViewController" {
-            let episodesVC = segue.destination as! EpisodesTableViewController
-            episodesVC.podcastID = selectedPodcastID
-        }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -48,7 +42,8 @@ class PodcastsTableViewController: UITableViewController {
         let podcast = podcasts[indexPath.row]
         selectedPodcastID = podcast.id
         presenter.onSelect(podcast)
-        performSegue(withIdentifier: "EpisodesViewController", sender: self)
+        let controller = EpisodeComposer.build(podcastID: podcast.id)
+        navigationController?.pushViewController(controller, animated: true)
     }
 }
 

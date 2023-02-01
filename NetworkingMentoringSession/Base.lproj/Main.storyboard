@@ -21,7 +21,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sVR-Ol-d2E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="828" y="2"/>
+            <point key="canvasLocation" x="-766" y="-11"/>
         </scene>
         <!--Genres View Controller-->
         <scene sceneID="C9F-KP-AOK">
@@ -47,18 +47,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="jZV-GE-4jc"/>
-                    <connections>
-                        <segue destination="Pak-bu-GeM" kind="show" identifier="PodcastsViewController" id="PQg-FD-q0Z"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m6h-OL-q8h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1680" y="-349"/>
+            <point key="canvasLocation" x="175" y="-333"/>
         </scene>
         <!--Podcasts Table View Controller-->
         <scene sceneID="3tq-lY-tE9">
             <objects>
-                <tableViewController id="Pak-bu-GeM" userLabel="Podcasts Table View Controller" customClass="PodcastsTableViewController" customModule="NetworkingMentoringSession" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PodcastsTableViewController" id="Pak-bu-GeM" userLabel="Podcasts Table View Controller" customClass="PodcastsTableViewController" customModule="NetworkingMentoringSession" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Ycp-qW-gX0">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -79,18 +76,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="iIr-Dg-uJS"/>
-                    <connections>
-                        <segue destination="wyy-xZ-Nhm" kind="show" identifier="EpisodesViewController" id="ZOv-Hn-yws"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zzf-BS-BeO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1679" y="355"/>
+            <point key="canvasLocation" x="175" y="374"/>
         </scene>
         <!--Episodes Table View Controller-->
         <scene sceneID="G9Y-CP-Gzl">
             <objects>
-                <tableViewController id="wyy-xZ-Nhm" customClass="EpisodesTableViewController" customModule="NetworkingMentoringSession" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="EpisodesTableViewController" id="wyy-xZ-Nhm" customClass="EpisodesTableViewController" customModule="NetworkingMentoringSession" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="WDZ-Fp-npo">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -114,7 +108,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G7t-bV-WRy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2527" y="355"/>
+            <point key="canvasLocation" x="987" y="374"/>
         </scene>
     </scenes>
     <resources>

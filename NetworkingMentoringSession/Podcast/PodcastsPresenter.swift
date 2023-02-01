@@ -2,20 +2,21 @@
 import Foundation
 
 protocol PodcastsView: AnyObject {
-    func display(_ genres: [Podcast])
+    func display(_ podcasts: [Podcast])
     func display(isLoading: Bool)
 }
 
 class PodcastsPresenter {
-    
     weak var view: PodcastsView?
+    var genreID: Int
     
-    var genreID: Int?
+    init(genreID: Int) {
+        self.genreID = genreID
+    }
     
     @objc
     func getPodcasts() {
-        view?.display(isLoading: true)
-        guard let genreID = genreID else { return }
+        view?.display(isLoading: true)        
         var urlComponents = URLComponents(string: "https://listen-api-test.listennotes.com/api/v2/best_podcasts")!
         urlComponents.queryItems = [URLQueryItem(name: "genre_id", value: String(genreID))]
         var requestPodcasts = URLRequest(url: urlComponents.url!)

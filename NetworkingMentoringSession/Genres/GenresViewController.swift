@@ -2,9 +2,7 @@
 import UIKit
 
 class GenresViewController: UITableViewController {
-    
-    let presenter = GenresPresenter()
-    
+    var presenter: GenresPresenter!
     var models: [Genre] = []
     var selectedGenreID: Int?
     
@@ -19,13 +17,6 @@ class GenresViewController: UITableViewController {
     @objc
     func onRefresh() {
         presenter.getGenres()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "PodcastsViewController" {
-            let podcastsVC = segue.destination as! PodcastsTableViewController
-            podcastsVC.genreID = selectedGenreID
-        }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -47,7 +38,8 @@ class GenresViewController: UITableViewController {
         let genre = models[indexPath.row]
         selectedGenreID = genre.id
         presenter.onSelect(genre)
-        performSegue(withIdentifier: "PodcastsViewController", sender: self)
+        let controller = PodcastComposer.build(genreID: genre.id)
+        navigationController?.pushViewController(controller, animated: true)
     }
 }
 

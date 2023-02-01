@@ -7,7 +7,6 @@ protocol GenresView: AnyObject {
 }
 
 class GenresPresenter {
-    
     weak var view: GenresView?
     
     @objc
