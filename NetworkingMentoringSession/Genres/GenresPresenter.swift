@@ -37,3 +37,18 @@ class GenresPresenter {
         print("SELECTED \(genre)")
     }
 }
+
+extension GenresViewController: GenresView {
+    func display(_ genres: [Genre]) {
+        models = genres
+        tableView.reloadData()
+    }
+    
+    func display(isLoading: Bool) {
+        if isLoading {
+            tableView.refreshControl?.beginRefreshing()
+        } else {
+            tableView.refreshControl?.endRefreshing()
+        }
+    }
+}

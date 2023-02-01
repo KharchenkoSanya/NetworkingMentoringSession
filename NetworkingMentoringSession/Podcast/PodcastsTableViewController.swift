@@ -46,18 +46,3 @@ class PodcastsTableViewController: UITableViewController {
         navigationController?.pushViewController(controller, animated: true)
     }
 }
-
-extension PodcastsTableViewController: PodcastsView {
-    func display(_ podcast: [Podcast]) {
-        podcasts = podcast
-        tableView.reloadData()
-    }
-    
-    func display(isLoading: Bool) {
-        if isLoading {
-            tableView.refreshControl?.beginRefreshing()
-        } else {
-            tableView.refreshControl?.endRefreshing()
-        }
-    }
-}

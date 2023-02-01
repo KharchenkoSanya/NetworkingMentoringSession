@@ -45,3 +45,18 @@ class EpisodesPresenter {
         print("SELECTED \(episode)")
     }
 }
+
+extension EpisodesTableViewController: EpisodeView {
+    func display(_ episode: [Episode]) {
+        episodes = episode
+        tableView.reloadData()
+    }
+    
+    func display(isLoading: Bool) {
+        if isLoading {
+            tableView.refreshControl?.beginRefreshing()
+        } else {
+            tableView.refreshControl?.endRefreshing()
+        }
+    }
+}
