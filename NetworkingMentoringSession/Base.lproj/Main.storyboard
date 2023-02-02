@@ -55,7 +55,7 @@
         <!--Podcasts Table View Controller-->
         <scene sceneID="3tq-lY-tE9">
             <objects>
-                <tableViewController storyboardIdentifier="PodcastsTableViewController" id="Pak-bu-GeM" userLabel="Podcasts Table View Controller" customClass="PodcastsTableViewController" customModule="NetworkingMentoringSession" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PodcastsViewController" id="Pak-bu-GeM" userLabel="Podcasts Table View Controller" customClass="PodcastsViewController" customModule="NetworkingMentoringSession" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Ycp-qW-gX0">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -81,10 +81,10 @@
             </objects>
             <point key="canvasLocation" x="175" y="374"/>
         </scene>
-        <!--Episodes Table View Controller-->
+        <!--Episodes View Controller-->
         <scene sceneID="G9Y-CP-Gzl">
             <objects>
-                <tableViewController storyboardIdentifier="EpisodesTableViewController" id="wyy-xZ-Nhm" customClass="EpisodesTableViewController" customModule="NetworkingMentoringSession" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="EpisodesViewController" id="wyy-xZ-Nhm" customClass="EpisodesViewController" customModule="NetworkingMentoringSession" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="WDZ-Fp-npo">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

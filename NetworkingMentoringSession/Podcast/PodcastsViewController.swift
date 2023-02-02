@@ -1,10 +1,10 @@
 
 import UIKit
 
-class EpisodesTableViewController: UITableViewController {
-    var presenter: EpisodesPresenter!
-    var episodeID: String?
-    var episodes: [Episode] = []
+class PodcastsViewController: UITableViewController {
+    var presenter: PodcastsPresenter!
+    var selectedPodcastID: String?
+    var podcasts: [Podcast] = []
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -14,13 +14,13 @@ class EpisodesTableViewController: UITableViewController {
         super.viewDidLoad()
         presenter.view = self
         tableView.refreshControl = UIRefreshControl()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "PodcastsIDViewController")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "PodcastTableViewCell")
         onRefresh()
     }
     
     @objc
     func onRefresh() {
-        presenter.getEpisode()
+        presenter.getPodcasts()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -28,26 +28,28 @@ class EpisodesTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return episodes.count
+        return podcasts.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PodcastsIDViewController")!
-        let song = episodes[indexPath.row]
-        cell.textLabel?.text = song.title
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PodcastTableViewCell")!
+        let podcast = podcasts[indexPath.row]
+        cell.textLabel?.text = podcast.title
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let episode = episodes[indexPath.row]
-        episodeID = episode.id
-        presenter.onSelect(episode)
+        let podcast = podcasts[indexPath.row]
+        selectedPodcastID = podcast.id
+        presenter.onSelect(podcast)
+        let controller = EpisodeComposer.build(podcastID: podcast.id)
+        navigationController?.pushViewController(controller, animated: true)
     }
 }
 
-extension EpisodesTableViewController: EpisodeView {
-    func display(_ episode: [Episode]) {
-        episodes = episode
+extension PodcastsViewController: PodcastsView {
+    func display(_ podcast: [Podcast]) {
+        podcasts = podcast
         tableView.reloadData()
     }
     

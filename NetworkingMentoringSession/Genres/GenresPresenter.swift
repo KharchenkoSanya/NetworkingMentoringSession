@@ -12,16 +12,16 @@ class GenresPresenter {
     @objc
     func getGenres() {
         view?.display(isLoading: true)
-        var request = URLRequest(url: URL(string: "https://listen-api-test.listennotes.com/api/v2/genres")!)
-        request.httpMethod = "GET"
-        let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: request) { data, response, error in
+        var requestGenres = URLRequest(url: URL(string: "https://listen-api-test.listennotes.com/api/v2/genres")!)
+        requestGenres.httpMethod = "GET"
+        let sessionGenres = URLSession(configuration: .default)
+        let taskGenres = sessionGenres.dataTask(with: requestGenres) { data, response, error in
             guard let data = data else { return }
             do {
-                let result = try JSONDecoder().decode(GenresResult.self, from: data)
-                print("DECODING RESULT \(result)")
+                let resultGenres = try JSONDecoder().decode(GenresResult.self, from: data)
+                print("DECODING RESULT \(resultGenres)")
                 DispatchQueue.main.async {
-                    self.view?.display(result.genres)
+                    self.view?.display(resultGenres.genres)
                     self.view?.display(isLoading: false)
                 }
             } catch {
@@ -31,8 +31,9 @@ class GenresPresenter {
                 }
             }
         }
-        task.resume()
+        taskGenres.resume()
     }
+    
     func onSelect(_ genre: Genre) {
         print("SELECTED \(genre)")
     }
