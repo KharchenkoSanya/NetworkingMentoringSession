@@ -6,6 +6,7 @@ protocol PodcastsView: AnyObject {
     func display(isLoading: Bool)
 }
 
+// ISSUE: - Class should have `final` keyword if it doesn't have any subclases
 class PodcastsPresenter {
     weak var view: PodcastsView?
     var genreID: Int
@@ -26,12 +27,14 @@ class PodcastsPresenter {
             guard let data = data else { return }
             do {
                 let resultPodcasts = try JSONDecoder().decode(PodcastsResult.self, from: data)
+                // ISSUE: - prints
                 print("DECODING RESULT \(resultPodcasts)")
                 DispatchQueue.main.async {
                     self.view?.display(resultPodcasts.podcasts)
                     self.view?.display(isLoading: false)
                 }
             } catch {
+                // ISSUE: - prints
                 print("DECODING ERROR \(error)")
                 DispatchQueue.main.async {
                     self.view?.display(isLoading: false)
@@ -41,9 +44,9 @@ class PodcastsPresenter {
         taskPodcasts.resume()
     }
     
+    // ISSUE: - This method just printed the data, presenter doesn't need it in this navigation configuration
     func onSelect(_ podcast: Podcast) {
         print("SELECTED \(podcast)")
     }
 }
-
 

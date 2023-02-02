@@ -1,9 +1,13 @@
 
 import UIKit
 
+// ISSUE: - Pull to refresh doesn't work on this screen
+
 class GenresViewController: UITableViewController {
     var presenter = GenresPresenter()
     var models: [Genre] = []
+    
+    // ISSUE: - This variable is not used
     var selectedGenreID: Int?
     
     override func viewDidLoad() {
@@ -37,6 +41,8 @@ class GenresViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let genre = models[indexPath.row]
         selectedGenreID = genre.id
+        
+        // ISSUE: - Unused presenter message
         presenter.onSelect(genre)
         let controller = PodcastComposer.build(genreID: genre.id)
         navigationController?.pushViewController(controller, animated: true)
