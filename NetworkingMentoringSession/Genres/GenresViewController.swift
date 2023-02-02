@@ -10,7 +10,7 @@ class GenresViewController: UITableViewController {
         super.viewDidLoad()
         presenter.view = self
         tableView.refreshControl = UIRefreshControl()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "GenreTableViewCell")
         onRefresh()
     }
     
@@ -28,7 +28,7 @@ class GenresViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "GenreTableViewCell")!
         let genre = models[indexPath.row]
         cell.textLabel?.text = genre.name
         return cell

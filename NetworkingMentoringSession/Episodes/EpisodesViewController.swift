@@ -14,7 +14,7 @@ class EpisodesViewController: UITableViewController {
         super.viewDidLoad()
         presenter.view = self
         tableView.refreshControl = UIRefreshControl()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "PodcastsIDViewController")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "EpisodeTableViewCell")
         onRefresh()
     }
     
@@ -32,7 +32,7 @@ class EpisodesViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PodcastsIDViewController")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodeTableViewCell")!
         let song = episodes[indexPath.row]
         cell.textLabel?.text = song.title
         return cell
