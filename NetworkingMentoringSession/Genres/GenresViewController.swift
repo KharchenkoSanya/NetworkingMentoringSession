@@ -1,15 +1,15 @@
-
 import UIKit
 
-class GenresViewController: UITableViewController {
+final class GenresViewController: UITableViewController {
     var presenter = GenresPresenter()
     var models: [Genre] = []
-    var selectedGenreID: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.view = self
-        tableView.refreshControl = UIRefreshControl()
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(onRefresh), for: .valueChanged)
+        tableView.refreshControl = refreshControl
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "GenreTableViewCell")
         onRefresh()
     }
@@ -36,8 +36,6 @@ class GenresViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let genre = models[indexPath.row]
-        selectedGenreID = genre.id
-        presenter.onSelect(genre)
         let controller = PodcastComposer.build(genreID: genre.id)
         navigationController?.pushViewController(controller, animated: true)
     }

@@ -1,4 +1,3 @@
-
 import Foundation
 
 protocol EpisodeView: AnyObject {
@@ -6,7 +5,7 @@ protocol EpisodeView: AnyObject {
     func display(isLoading: Bool)
 }
 
-class EpisodesPresenter {
+final class EpisodesPresenter {
     
     weak var view: EpisodeView?
     var podcastID: String
@@ -26,22 +25,16 @@ class EpisodesPresenter {
             guard let data = data else { return }
             do {
                 let resultEpisodes = try JSONDecoder().decode(EpisodesResult.self, from: data)
-                print("DECODING RESULT \(resultEpisodes)")
                 DispatchQueue.main.async {
                     self.view?.display(resultEpisodes.episodes)
                     self.view?.display(isLoading: false)
                 }
             } catch {
-                print("DECODING ERROR \(error)")
                 DispatchQueue.main.async {
                     self.view?.display(isLoading: false)
                 }
             }
         }
         taskEpisodes.resume()
-    }
-    
-    func onSelect(_ episode: Episode) {
-        print("SELECTED \(episode)")
     }
 }

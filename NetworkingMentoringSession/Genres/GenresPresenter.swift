@@ -1,4 +1,3 @@
-
 import Foundation
 
 protocol GenresView: AnyObject {
@@ -6,7 +5,7 @@ protocol GenresView: AnyObject {
     func display(isLoading: Bool)
 }
 
-class GenresPresenter {
+final class GenresPresenter {
     weak var view: GenresView?
     
     @objc
@@ -19,13 +18,11 @@ class GenresPresenter {
             guard let data = data else { return }
             do {
                 let resultGenres = try JSONDecoder().decode(GenresResult.self, from: data)
-                print("DECODING RESULT \(resultGenres)")
                 DispatchQueue.main.async {
                     self.view?.display(resultGenres.genres)
                     self.view?.display(isLoading: false)
                 }
             } catch {
-                print("DECODING ERROR \(error)")
                 DispatchQueue.main.async {
                     self.view?.display(isLoading: false)
                 }
@@ -33,10 +30,4 @@ class GenresPresenter {
         }
         taskGenres.resume()
     }
-    
-    func onSelect(_ genre: Genre) {
-        print("SELECTED \(genre)")
-    }
 }
-
-

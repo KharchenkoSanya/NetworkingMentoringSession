@@ -1,4 +1,3 @@
-
 import Foundation
 
 struct EpisodesResult: Decodable {
@@ -9,7 +8,7 @@ struct Episode: Decodable {
     let id: String
     let image: String
     let title: String
-    let pubDateMs : Int
+    let pubDateMs: Int
     
     private enum CodingKeys: String, CodingKey {
         case id

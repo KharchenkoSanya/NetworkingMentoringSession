@@ -1,9 +1,7 @@
-
 import UIKit
 
-class PodcastsViewController: UITableViewController {
+final class PodcastsViewController: UITableViewController {
     var presenter: PodcastsPresenter!
-    var selectedPodcastID: String?
     var podcasts: [Podcast] = []
     
     required init?(coder: NSCoder) {
@@ -13,7 +11,9 @@ class PodcastsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.view = self
-        tableView.refreshControl = UIRefreshControl()
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(onRefresh), for: .valueChanged)
+        tableView.refreshControl = refreshControl
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "PodcastTableViewCell")
         onRefresh()
     }
@@ -40,8 +40,6 @@ class PodcastsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let podcast = podcasts[indexPath.row]
-        selectedPodcastID = podcast.id
-        presenter.onSelect(podcast)
         let controller = EpisodeComposer.build(podcastID: podcast.id)
         navigationController?.pushViewController(controller, animated: true)
     }

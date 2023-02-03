@@ -1,9 +1,7 @@
-
 import UIKit
 
-class EpisodesViewController: UITableViewController {
+final class EpisodesViewController: UITableViewController {
     var presenter: EpisodesPresenter!
-    var episodeID: String?
     var episodes: [Episode] = []
     
     required init?(coder: NSCoder) {
@@ -13,7 +11,9 @@ class EpisodesViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.view = self
-        tableView.refreshControl = UIRefreshControl()
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(onRefresh), for: .valueChanged)
+        tableView.refreshControl = refreshControl
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "EpisodeTableViewCell")
         onRefresh()
     }
@@ -36,12 +36,6 @@ class EpisodesViewController: UITableViewController {
         let song = episodes[indexPath.row]
         cell.textLabel?.text = song.title
         return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let episode = episodes[indexPath.row]
-        episodeID = episode.id
-        presenter.onSelect(episode)
     }
 }
 
