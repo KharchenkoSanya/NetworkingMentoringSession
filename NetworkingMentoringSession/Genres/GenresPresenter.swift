@@ -8,7 +8,6 @@ protocol GenresView: AnyObject {
 final class GenresPresenter {
     weak var view: GenresView?
     
-    @objc
     func getGenres() {
         view?.display(isLoading: true)
         var requestGenres = URLRequest(url: URL(string: "https://listen-api-test.listennotes.com/api/v2/genres")!)

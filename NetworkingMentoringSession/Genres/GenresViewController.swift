@@ -43,6 +43,7 @@ final class GenresViewController: UITableViewController {
 }
 
 extension GenresViewController: GenresView {
+    
     func display(_ genres: [Genre]) {
         models = genres
         tableView.reloadData()
