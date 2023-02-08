@@ -10,11 +10,12 @@ final class EpisodesViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.view = self
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(onRefresh), for: .valueChanged)
+        self.navigationItem.title = "Episode"
+        let customCellNib = UINib(nibName: "EpisodesCell", bundle: nil)
+        tableView.register(customCellNib, forCellReuseIdentifier: "EpisodesCell")
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.addTarget(self, action: #selector(onRefresh), for: .valueChanged)
         tableView.refreshControl = refreshControl
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "EpisodeTableViewCell")
         onRefresh()
     }
     
@@ -32,9 +33,9 @@ final class EpisodesViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodeTableViewCell")!
-        let song = episodes[indexPath.row]
-        cell.textLabel?.text = song.title
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodesCell") as! EpisodesCell
+        let episode = episodes[indexPath.row]
+        cell.setup(with: episode)
         return cell
     }
 }

@@ -14,7 +14,7 @@ final class GenresPresenter {
         var requestGenres = URLRequest(url: URL(string: "https://listen-api-test.listennotes.com/api/v2/genres")!)
         requestGenres.httpMethod = "GET"
         let sessionGenres = URLSession(configuration: .default)
-        let taskGenres = sessionGenres.dataTask(with: requestGenres) { data, response, error in
+        let taskGenres = sessionGenres.dataTask(with: requestGenres) { data, _, _ in
             guard let data = data else { return }
             do {
                 let resultGenres = try JSONDecoder().decode(GenresResult.self, from: data)

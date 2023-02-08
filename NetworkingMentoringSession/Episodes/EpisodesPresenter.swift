@@ -17,11 +17,12 @@ final class EpisodesPresenter {
     @objc
     func getEpisode() {
         view?.display(isLoading: true)
-        let url = URL(string: "https://listen-api-test.listennotes.com/api/v2/podcasts")!.appending(component: podcastID)
+        let link = "https://listen-api-test.listennotes.com/api/v2/podcasts"
+        let url = URL(string: link)!.appending(component: podcastID)
         var requestEpisodes = URLRequest(url: url)
         requestEpisodes.httpMethod = "GET"
         let sessionEpisodes = URLSession(configuration: .default)
-        let taskEpisodes = sessionEpisodes.dataTask(with: requestEpisodes) { data, response, error in
+        let taskEpisodes = sessionEpisodes.dataTask(with: requestEpisodes) { data, _, _ in
             guard let data = data else { return }
             do {
                 let resultEpisodes = try JSONDecoder().decode(EpisodesResult.self, from: data)

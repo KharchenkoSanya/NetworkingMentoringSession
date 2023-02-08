@@ -21,13 +21,14 @@ final class PodcastsPresenter {
         var requestPodcasts = URLRequest(url: urlComponents.url!)
         requestPodcasts.httpMethod = "GET"
         let sessionPodcasts = URLSession(configuration: .default)
-        let taskPodcasts = sessionPodcasts.dataTask(with: requestPodcasts) { data, response, error in
+        let taskPodcasts = sessionPodcasts.dataTask(with: requestPodcasts) { data, _, _ in
             guard let data = data else { return }
             do {
                 let resultPodcasts = try JSONDecoder().decode(PodcastsResult.self, from: data)
                 DispatchQueue.main.async {
                     self.view?.display(resultPodcasts.podcasts)
                     self.view?.display(isLoading: false)
+                    
                 }
             } catch {
                 DispatchQueue.main.async {
@@ -38,5 +39,3 @@ final class PodcastsPresenter {
         taskPodcasts.resume()
     }
 }
-
-
