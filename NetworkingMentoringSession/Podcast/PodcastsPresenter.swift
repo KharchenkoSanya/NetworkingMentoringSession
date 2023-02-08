@@ -13,7 +13,6 @@ final class PodcastsPresenter {
         self.genreID = genreID
     }
     
-    @objc
     func getPodcasts() {
         view?.display(isLoading: true)
         var urlComponents = URLComponents(string: "https://listen-api-test.listennotes.com/api/v2/best_podcasts")!

@@ -6,7 +6,6 @@ protocol EpisodeView: AnyObject {
 }
 
 final class EpisodesPresenter {
-    
     weak var view: EpisodeView?
     var podcastID: String
     
@@ -14,7 +13,6 @@ final class EpisodesPresenter {
         self.podcastID = podcastID
     }
     
-    @objc
     func getEpisode() {
         view?.display(isLoading: true)
         let link = "https://listen-api-test.listennotes.com/api/v2/podcasts"
