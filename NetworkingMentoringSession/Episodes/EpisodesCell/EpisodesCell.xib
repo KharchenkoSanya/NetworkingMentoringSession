@@ -9,31 +9,34 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EpisodesCell" rowHeight="111" id="KGk-i7-Jjw" customClass="EpisodesCell" customModule="NetworkingMentoringSession" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="508" height="111"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EpisodesCell" rowHeight="69" id="KGk-i7-Jjw" customClass="EpisodesCell" customModule="NetworkingMentoringSession" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="508" height="69"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="508" height="111"/>
+                <rect key="frame" x="0.0" y="0.0" width="508" height="69"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IdLable" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJF-kj-Ros">
-                        <rect key="frame" x="9.9999999999999964" y="0.0" width="55.666666666666657" height="20.333333333333332"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IdLable" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJF-kj-Ros">
+                        <rect key="frame" x="10" y="0.0" width="488" height="20.333333333333332"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TitleLable" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKD-hT-h3E">
-                        <rect key="frame" x="10" y="20.333333333333336" width="71" height="19.333333333333336"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TitleLable" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKD-hT-h3E">
+                        <rect key="frame" x="10" y="20.333333333333336" width="488" height="19.333333333333336"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.96841138599999999" green="0.0" blue="0.47492234449999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="gKD-hT-h3E" secondAttribute="trailing" constant="10" id="8e7-4U-mjl"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="gKD-hT-h3E" secondAttribute="bottom" priority="750" id="9bO-6K-nAW"/>
                     <constraint firstItem="gKD-hT-h3E" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="FEn-hX-cbG"/>
                     <constraint firstItem="PJF-kj-Ros" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="ZzI-DM-Q7J"/>
                     <constraint firstItem="PJF-kj-Ros" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="bE0-Zp-1qP"/>
                     <constraint firstItem="gKD-hT-h3E" firstAttribute="top" secondItem="PJF-kj-Ros" secondAttribute="bottom" id="sw6-b9-WsD"/>
+                    <constraint firstAttribute="trailing" secondItem="PJF-kj-Ros" secondAttribute="trailing" constant="10" id="uB8-Fd-mty"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -41,7 +44,7 @@
                 <outlet property="pubDateMsLabel" destination="PJF-kj-Ros" id="JR5-gL-oN6"/>
                 <outlet property="titleLable" destination="gKD-hT-h3E" id="Fzx-Qr-omC"/>
             </connections>
-            <point key="canvasLocation" x="-152.67175572519082" y="1.7605633802816902"/>
+            <point key="canvasLocation" x="-152.67175572519082" y="-13.028169014084508"/>
         </tableViewCell>
     </objects>
 </document>
