@@ -18,6 +18,7 @@
 		3374A7AD29896F2100C455BD /* EpisodesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374A7AC29896F2100C455BD /* EpisodesViewController.swift */; };
 		3374A7B02989721800C455BD /* PodcastComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374A7AF2989721800C455BD /* PodcastComposer.swift */; };
 		3374A7B2298978C800C455BD /* EpisodeComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374A7B1298978C800C455BD /* EpisodeComposer.swift */; };
+		33805499299690E50091029B /* GenreComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33805498299690E50091029B /* GenreComposer.swift */; };
 		33C806C3296616F400BA2D1A /* PodcastsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C806C2296616F400BA2D1A /* PodcastsViewController.swift */; };
 		8D1A4B4A2955FB7F00825E60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1A4B492955FB7F00825E60 /* AppDelegate.swift */; };
 		8D1A4B4C2955FB7F00825E60 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1A4B4B2955FB7F00825E60 /* SceneDelegate.swift */; };
@@ -43,6 +44,7 @@
 		3374A7AC29896F2100C455BD /* EpisodesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesViewController.swift; sourceTree = "<group>"; };
 		3374A7AF2989721800C455BD /* PodcastComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastComposer.swift; sourceTree = "<group>"; };
 		3374A7B1298978C800C455BD /* EpisodeComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeComposer.swift; sourceTree = "<group>"; };
+		33805498299690E50091029B /* GenreComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreComposer.swift; sourceTree = "<group>"; };
 		33C806C2296616F400BA2D1A /* PodcastsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastsViewController.swift; sourceTree = "<group>"; };
 		82B4964C397AF083C405AFBF /* Pods-NetworkingMentoringSession.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkingMentoringSession.debug.xcconfig"; path = "Target Support Files/Pods-NetworkingMentoringSession/Pods-NetworkingMentoringSession.debug.xcconfig"; sourceTree = "<group>"; };
 		8D1A4B462955FB7F00825E60 /* NetworkingMentoringSession.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkingMentoringSession.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +75,7 @@
 			children = (
 				3310C95A297700D0009715E6 /* GenresPresenter.swift */,
 				8D1A4B4D2955FB7F00825E60 /* GenresViewController.swift */,
+				33805498299690E50091029B /* GenreComposer.swift */,
 				3310C958297700B2009715E6 /* GenresModel.swift */,
 			);
 			path = Genres;
@@ -292,6 +295,7 @@
 				8D1A4B4A2955FB7F00825E60 /* AppDelegate.swift in Sources */,
 				3310C9532976FBE3009715E6 /* EpisodesPresenter.swift in Sources */,
 				8D1A4B4C2955FB7F00825E60 /* SceneDelegate.swift in Sources */,
+				33805499299690E50091029B /* GenreComposer.swift in Sources */,
 				3310C9512976FBC9009715E6 /* PodcastsPresenter.swift in Sources */,
 				3366B34E29938E9400042EF4 /* EpisodesCell.swift in Sources */,
 			);
