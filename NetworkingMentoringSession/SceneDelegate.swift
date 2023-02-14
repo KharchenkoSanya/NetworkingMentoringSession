@@ -8,9 +8,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let genre = storyboard.instantiateViewController(withIdentifier: String(describing: GenresViewController.self))
-        let genreNav = UINavigationController(rootViewController: genre)
+        let genreNav = UINavigationController(rootViewController: GenreComposer.build())
         window.rootViewController = genreNav
         self.window = window
         window.makeKeyAndVisible()
