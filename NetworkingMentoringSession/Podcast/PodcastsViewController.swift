@@ -4,10 +4,6 @@ final class PodcastsViewController: UITableViewController {
     var presenter: PodcastsPresenter!
     var podcasts: [Podcast] = []
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Podcast"

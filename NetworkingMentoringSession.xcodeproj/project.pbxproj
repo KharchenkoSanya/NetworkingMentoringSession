@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		330F1BBB299E1FDC009585F5 /* EpisodesXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 330F1BB9299E1FDC009585F5 /* EpisodesXib.xib */; };
+		330F1BBF299E2010009585F5 /* PodcastsXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 330F1BBD299E2010009585F5 /* PodcastsXib.xib */; };
 		3310C9512976FBC9009715E6 /* PodcastsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3310C9502976FBC9009715E6 /* PodcastsPresenter.swift */; };
 		3310C9532976FBE3009715E6 /* EpisodesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3310C9522976FBE3009715E6 /* EpisodesPresenter.swift */; };
 		3310C9552976FEBD009715E6 /* PodcastsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3310C9542976FEBD009715E6 /* PodcastsModel.swift */; };
@@ -33,6 +35,8 @@
 /* Begin PBXFileReference section */
 		0B6B7F670EDF53A9014AB4B6 /* Pods_NetworkingMentoringSession.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetworkingMentoringSession.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2624F834BF9A3FDABEBB133A /* Pods-NetworkingMentoringSession.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkingMentoringSession.release.xcconfig"; path = "Target Support Files/Pods-NetworkingMentoringSession/Pods-NetworkingMentoringSession.release.xcconfig"; sourceTree = "<group>"; };
+		330F1BB9299E1FDC009585F5 /* EpisodesXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodesXib.xib; sourceTree = "<group>"; };
+		330F1BBD299E2010009585F5 /* PodcastsXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PodcastsXib.xib; sourceTree = "<group>"; };
 		3310C9502976FBC9009715E6 /* PodcastsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastsPresenter.swift; sourceTree = "<group>"; };
 		3310C9522976FBE3009715E6 /* EpisodesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesPresenter.swift; sourceTree = "<group>"; };
 		3310C9542976FEBD009715E6 /* PodcastsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastsModel.swift; sourceTree = "<group>"; };
@@ -89,6 +93,7 @@
 				3374A7AC29896F2100C455BD /* EpisodesViewController.swift */,
 				3374A7B1298978C800C455BD /* EpisodeComposer.swift */,
 				3310C9562976FECA009715E6 /* EpisodesModel.swift */,
+				330F1BB9299E1FDC009585F5 /* EpisodesXib.xib */,
 			);
 			path = Episodes;
 			sourceTree = "<group>";
@@ -100,6 +105,7 @@
 				33C806C2296616F400BA2D1A /* PodcastsViewController.swift */,
 				3374A7AF2989721800C455BD /* PodcastComposer.swift */,
 				3310C9542976FEBD009715E6 /* PodcastsModel.swift */,
+				330F1BBD299E2010009585F5 /* PodcastsXib.xib */,
 			);
 			path = Podcast;
 			sourceTree = "<group>";
@@ -226,9 +232,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D1A4B562955FB8000825E60 /* LaunchScreen.storyboard in Resources */,
+				330F1BBF299E2010009585F5 /* PodcastsXib.xib in Resources */,
 				8D1A4B532955FB8000825E60 /* Assets.xcassets in Resources */,
 				8D1A4B5E2955FC0000825E60 /* README.md in Resources */,
 				3366B34F29938E9400042EF4 /* EpisodesCell.xib in Resources */,
+				330F1BBB299E1FDC009585F5 /* EpisodesXib.xib in Resources */,
 				8D1A4B512955FB7F00825E60 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
