@@ -37,8 +37,21 @@ final class PodcastsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let podcast = podcasts[indexPath.row]
-        let controller = EpisodeComposer.build(podcastID: podcast.id)
+        let controller = EpisodeComposer.build(podcastID: podcast.id, onEpisodeSelect: selectEpisode)
         navigationController?.pushViewController(controller, animated: true)
+        
+    }
+    
+    func selectEpisode (episode: Episode) {
+        self.showAlert(title: "selected \(episode.title)")
+        }
+    
+    func showAlert(title: String) {
+        self.navigationController?.presentedViewController?.dismiss(animated: true)
+        let alert = UIAlertController(title: "Your episode", message: title, preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(okAction)
+                self.present(alert, animated: true, completion: nil)
     }
 }
 
