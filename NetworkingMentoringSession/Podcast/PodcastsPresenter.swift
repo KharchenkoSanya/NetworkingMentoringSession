@@ -7,6 +7,7 @@ protocol PodcastsView: AnyObject {
 
 final class PodcastsPresenter {
     weak var view: PodcastsView?
+    weak var router: PodcastsRouter?
     var genreID: Int
     
     init(genreID: Int) {
@@ -36,5 +37,9 @@ final class PodcastsPresenter {
             }
         }
         taskPodcasts.resume()
+    }
+    
+    func onSelectedPodcast(_ podcast: Podcast) {
+        router?.route(with: podcast)
     }
 }

@@ -2,16 +2,22 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
+    var appRouter: AppRouter?
     
     func scene(_ scene: UIScene,
                willConnectTo session: UISceneSession,
                options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
+        
         let window = UIWindow(windowScene: windowScene)
-        let genreNav = UINavigationController(rootViewController: GenreComposer.build())
-        window.rootViewController = genreNav
-        self.window = window
+        let nav = UINavigationController()
+        let appRouter = AppRouter(navigationController: nav)
+        appRouter.start()
+        self.appRouter = appRouter
+        window.rootViewController = nav
         window.makeKeyAndVisible()
+        
+        self.window = window
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {}

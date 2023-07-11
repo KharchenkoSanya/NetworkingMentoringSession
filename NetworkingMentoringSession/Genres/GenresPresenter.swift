@@ -7,6 +7,7 @@ protocol GenresView: AnyObject {
 
 final class GenresPresenter {
     weak var view: GenresView?
+    weak var router: GenreRouter?
     
     func getGenres() {
         view?.display(isLoading: true)
@@ -28,5 +29,9 @@ final class GenresPresenter {
             }
         }
         taskGenres.resume()
+    }
+    
+    func onGenreSelect(_ genre: Genre) {
+        router?.route(with: genre)
     }
 }

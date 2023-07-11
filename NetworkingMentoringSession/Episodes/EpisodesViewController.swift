@@ -3,7 +3,7 @@ import UIKit
 final class EpisodesViewController: UITableViewController {
     var presenter: EpisodesPresenter!
     var episodes: [Episode] = []
-    var onEpisodeSelect: ((Episode) -> Void)?
+//    var onEpisodeSelect: ((Episode) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,12 +35,6 @@ final class EpisodesViewController: UITableViewController {
         cell.setup(with: episode)
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let episode = episodes[indexPath.row]
-        self.navigationController?.popViewController(animated: true)
-        onEpisodeSelect?(episode)
-      }
 }
 
 extension EpisodesViewController: EpisodeView {

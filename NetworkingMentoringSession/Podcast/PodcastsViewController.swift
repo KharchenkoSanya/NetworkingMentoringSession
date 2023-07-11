@@ -37,8 +37,10 @@ final class PodcastsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let podcast = podcasts[indexPath.row]
-        let controller = EpisodeComposer.build(podcastID: podcast.id, onEpisodeSelect: selectEpisode)
-        navigationController?.pushViewController(controller, animated: true)
+        presenter.onSelectedPodcast(podcast)
+        
+//        let controller = EpisodeComposer.build(podcastID: podcast.id, onEpisodeSelect: selectEpisode)
+//        navigationController?.pushViewController(controller, animated: true)
         
     }
     

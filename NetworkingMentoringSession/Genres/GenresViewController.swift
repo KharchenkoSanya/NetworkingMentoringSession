@@ -37,8 +37,7 @@ final class GenresViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let genre = models[indexPath.row]
-        let controller = PodcastComposer.build(genreID: genre.id)
-        navigationController?.pushViewController(controller, animated: true)
+        presenter.onGenreSelect(genre)
     }
 }
 
